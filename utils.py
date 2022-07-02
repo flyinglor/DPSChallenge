@@ -1,19 +1,19 @@
 
 def trans_MONATSZAHL(x):
-    if x=='Alkoholunfälle':
+    if x=='alkoholunfälle':
         x=0
-    elif x=='Fluchtunfälle':
+    elif x=='fluchtunfälle':
         x=1
-    elif x=='Verkehrsunfälle':
+    elif x=='verkehrsunfälle':
         x=2
     return x
 
 def trans_AUSPRAEGUNG(x):
     if x=='insgesamt':
         x=0
-    elif x=='Verletzte und Getötete':
+    elif x=='verletzte und getötete':
         x=1
-    elif x=='mit Personenschäden':
+    elif x=='mit personenschäden':
         x=2
     return x
 
