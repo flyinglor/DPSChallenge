@@ -1,18 +1,19 @@
+from email.mime import application
 from flask import Flask, render_template, request, redirect, url_for, flash
 from utils import *
 import pandas as pd
 import pickle
 import json
 
-app = Flask(__name__)
-app.config['TEMPLATES_AUTO_RELOAD'] = True
+application = Flask(__name__)
+application.config['TEMPLATES_AUTO_RELOAD'] = True
 model_path = './Model/linear_reg.pkl'
 
-@app.route('/')
+@application.route('/')
 def hello():
     return 'Hello'
 
-@app.route('/predict', methods=['GET', 'POST'])
+@application.route('/predict', methods=['GET', 'POST'])
 def predict():
     content = request.json
 
