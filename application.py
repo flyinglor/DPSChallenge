@@ -1,4 +1,3 @@
-from urllib import response
 from flask import Flask, render_template, request, redirect, url_for, flash
 from utils import *
 import pandas as pd
@@ -9,16 +8,17 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 model_path = './Model/linear_reg.pkl'
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def hello():
+    return 'Hello'
+
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
     content = request.json
 
     content = str(content).lower()
     json_acceptable_string = content.replace("'", "\"")
     content = json.loads(json_acceptable_string)
-
-    print(content.keys())
-
 
     if 'monatszahl' in content.keys():
         MONATSZAHL = trans_MONATSZAHL(content['monatszahl'])
